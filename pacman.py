@@ -140,9 +140,13 @@ def move():
                 vector(0, 5),
                 vector(0, -5),
             ]
-            plan = choice(options)
-            course.x = plan.x
-            course.y = plan.y
+
+            valid_options = [option for option in options if valid(point + option)]
+
+        # Choose the direction that minimizes Manhattan distance to Pacman
+            best_option = min(valid_options, key=lambda option: abs((point + option).x - pacman.x) + abs((point + option).y - pacman.y))
+            course.x = best_option.x
+            course.y = best_option.y
 
         up()
         goto(point.x + 10, point.y + 10)
