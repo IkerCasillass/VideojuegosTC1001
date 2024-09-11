@@ -79,11 +79,15 @@ def draw():
     mark = state['mark']
 
     if mark is not None and hide[mark]:
+        
         x, y = xy(mark)
         up()
-        goto(x + 2, y)
+        if tiles[mark] < 11:
+            goto(x + 15, y + 5)
+        else: 
+            goto(x+5,y)  
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles[mark], font=('Arial', 30, 'normal'))  
 
     up()
     goto(0, 220)
@@ -91,12 +95,12 @@ def draw():
     write(f'Taps: {tap_count}', font=('Arial', 20, 'normal'))
 
     if all(not hidden for hidden in hide):
-        game_over = True  # Mark the game as over
+        game_over = True 
         up()
         goto(0, 0)
         color('green')
-        write("You win!", align='center', font=('Arial', 40, 'bold'))  # Display winning message
-        return  # Stop further updates
+        write("You win!", align='center', font=('Arial', 40, 'bold')) 
+        return 
 
     update()
     ontimer(draw, 100)
