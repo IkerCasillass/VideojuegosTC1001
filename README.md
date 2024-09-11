@@ -23,7 +23,7 @@ Para poder correr los juegos modificados, sigue las siguientes instrucciones:
 
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/IkerCasillass/VideojuegosTC1001.git
    
 2. Dirígete a la carpeta:
    ```bash
